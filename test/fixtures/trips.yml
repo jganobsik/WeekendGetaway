@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  road_trip: false
+  flight: false
+  duration: 1
+
+two:
+  road_trip: false
+  flight: false
+  duration: 1
