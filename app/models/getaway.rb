@@ -1,0 +1,2 @@
+class Getaway < ApplicationRecord
+end

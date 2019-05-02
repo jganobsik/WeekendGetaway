@@ -1,0 +1,2 @@
+class GetawaysController < ApplicationController
+end
