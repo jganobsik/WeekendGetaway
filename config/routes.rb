@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :accommodations
   resources :getaways
   root 'static#home'
   get '/signup' => 'users#new'
