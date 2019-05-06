@@ -4,6 +4,7 @@ class CreateTrips < ActiveRecord::Migration[5.2]
       t.boolean :road_trip
       t.boolean :flight
       t.integer :duration
+      t.integer :getaway_id
 
       t.timestamps
     end
