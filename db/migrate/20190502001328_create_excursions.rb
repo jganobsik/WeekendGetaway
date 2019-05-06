@@ -4,6 +4,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :notes
       t.string :location
+      t.integer :getaway_id
 
       t.timestamps
     end
