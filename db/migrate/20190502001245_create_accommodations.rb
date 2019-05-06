@@ -5,6 +5,7 @@ class CreateAccommodations < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :city
       t.string :state
+      t.integer :getaway_id
 
       t.timestamps
     end
