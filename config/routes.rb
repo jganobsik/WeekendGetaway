@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :travel_agencies
   resources :excursions
   resources :trips
   resources :accommodations

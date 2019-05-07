@@ -1,0 +1,2 @@
+module TravelAgenciesHelper
+end
