@@ -1,0 +1,20 @@
+<%= form_for(@getaway) do |f| %>
+
+  <%= render partial: 'layouts/errors', locals: {object: @getaway} %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :days %>
+  <%= f.number_field :days, min:2 %>
+
+  <br><br>
+
+  <%= f.label :travel_agency_id, "Select a Travel Agency" %>
+  <%= f.collection_select :travel_agency_id, TravelAgency.all, :id, :name, prompt: true %>
+
+
+  <br><br>
+  <%= f.submit %>
+
+<% end %>
