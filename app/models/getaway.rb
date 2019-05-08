@@ -5,5 +5,8 @@ class Getaway < ApplicationRecord
     has_many :excursions,
     has_many :trips,
 
+    accepts_nested_attributes_for :trips,
+    accepts_nested_attributes_for :excursions,
+    accepts_nested_attributes_for :accommodations,
 
 end
