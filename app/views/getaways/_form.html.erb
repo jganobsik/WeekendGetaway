@@ -10,6 +10,18 @@
 
   <br><br>
 
+  <%= f.fields_for :trips do |trip| %>
+    <%= trip.label :road_trip %>
+    <%= trip.check_box :road_trip %><br>
+
+    <%= trip.label :flight %>
+    <%= trip.check_box :flight %><br>
+ 
+    <%= trip.label :duration %>
+    <%= trip.text_field :duration %><br>
+ 
+  <% end %>
+
   <%= f.label :travel_agency_id, "Select a Travel Agency" %>
   <%= f.collection_select :travel_agency_id, TravelAgency.all, :id, :name, prompt: true %>
 
