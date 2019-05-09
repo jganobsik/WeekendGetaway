@@ -17,5 +17,9 @@ class GetawaysController < ApplicationController
         end
       end
 
+      def index
+        @getaways = Getaway.all
+      end
+
 end
 
