@@ -33,6 +33,9 @@
   <% end %>
 
 
+  <%= f.label :travel_agency_id, "Select a Travel Agency" %>
+  <%= f.collection_select :travel_agency_id, TravelAgency.all, :id, :name, prompt: true %>
+
   <%= f.submit %>
   <% end %>
 
