@@ -2,6 +2,7 @@ class GetawaysController < ApplicationController
 
     def new
           @getaway = Getaway.new
+          @getaway.trips.build()
       end
     
     

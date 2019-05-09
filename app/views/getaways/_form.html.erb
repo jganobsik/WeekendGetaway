@@ -1,46 +1,22 @@
 <%= form_for(@getaway) do |f| %>
 
-  <%= render partial: 'layouts/errors', locals: {object: @getaway} %>
-
   <%= f.label :title %>
   <%= f.text_field :title %>
 
   <%= f.label :days %>
   <%= f.number_field :days, min:2 %>
 
-  <br><br>
-
   <%= f.fields_for :trips do |trip| %>
     <%= trip.label :road_trip %>
-    <%= trip.check_box :road_trip %><br>
+    <%= trip.check_box :road_trip %>
 
     <%= trip.label :flight %>
-    <%= trip.check_box :flight %><br>
+    <%= trip.check_box :flight %>
  
     <%= trip.label :duration %>
-    <%= trip.text_field :duration %><br>
+    <%= trip.text_field :duration %>
   <% end %>
 
-<%= f.fields_for :accomodations do |acc| %>
-    <%= acc.label :name %>
-    <%= acc.text_field :name %><br>
-
-    <%= acc.label :address %>
-    <%= acc.text_field :address %><br>
-
-    <%= acc.label :city %>
-    <%= acc.text_field :city %><br>
-
-    <%= acc.label :state %>
-    <%= acc.text_field :state %><br>
-  <% end %>
-
-  <br><br>
-  <%= f.label :travel_agency_id, "Select a Travel Agency" %>
-  <%= f.collection_select :travel_agency_id, TravelAgency.all, :id, :name, prompt: true %>
-
-
-  <br><br>
   <%= f.submit %>
+  <% end %>
 
-<% end %>
