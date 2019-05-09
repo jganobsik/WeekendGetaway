@@ -30,5 +30,10 @@ class GetawaysController < ApplicationController
         end
       end
 
+      def getaway_params
+        params.require(:getaway).permit(:title, :days, :travel_agency_id, travel_agency_attributes: [:name], trip_attributes: [:flight, :road_trip, :duration], accommodation_attributes: [:name, :address, :city, :state )
+      end
+    
+
 end
 
