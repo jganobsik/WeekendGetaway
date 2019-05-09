@@ -22,7 +22,6 @@
   <% end %>
 
 <%= f.fields_for :accomodations do |acc| %>
-
     <%= acc.label :name %>
     <%= acc.text_field :name %><br>
 
@@ -35,6 +34,7 @@
     <%= acc.label :state %>
     <%= acc.text_field :state %><br>
   <% end %>
+
   <br><br>
   <%= f.label :travel_agency_id, "Select a Travel Agency" %>
   <%= f.collection_select :travel_agency_id, TravelAgency.all, :id, :name, prompt: true %>

@@ -1,12 +1,7 @@
 class GetawaysController < ApplicationController
 
     def new
-
-        if params[:travel_agency_id] && travel_agency = TravelAgency.find_by_id(params[:travel_agency_id])
-          @getaway = travel_agency.getaways.build
-        else
           @getaway = Getaway.new
-        end
       end
     
     

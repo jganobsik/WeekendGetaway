@@ -1,3 +1,3 @@
 class Accommodation < ApplicationRecord
-    belongs_to :getaway,
+    belongs_to :getaway
 end
