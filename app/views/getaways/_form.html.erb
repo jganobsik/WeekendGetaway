@@ -17,6 +17,22 @@
     <%= trip.text_field :duration %>
   <% end %>
 
+
+<%= f.fields_for :accomodations do |acc| %>
+    <%= acc.label :name %>
+    <%= acc.text_field :name %><br>
+
+    <%= acc.label :address %>
+    <%= acc.text_field :address %><br>
+
+    <%= acc.label :city %>
+    <%= acc.text_field :city %><br>
+
+    <%= acc.label :state %>
+    <%= acc.text_field :state %><br>
+  <% end %>
+
+
   <%= f.submit %>
   <% end %>
 
