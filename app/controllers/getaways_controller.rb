@@ -21,5 +21,14 @@ class GetawaysController < ApplicationController
         @getaways = Getaway.all
       end
 
+      private
+
+      def set_getaway
+        @getaway = Getaway.find_by(id: params[:id])
+        if !@getaway
+          redirect_to getaways_path
+        end
+      end
+
 end
 
