@@ -21,6 +21,23 @@ class GetawaysController < ApplicationController
         @getaways = Getaway.all
       end
 
+      def show
+        set_getaway
+      end
+
+      def edit
+        set_getaway
+      end
+
+      def update
+        set_getaway
+        if @getaway.update(getaway_params)
+            redirect_to getaway_path(@getaway)
+          else
+            render :edit
+          end
+      end
+
       private
 
       def set_getaway
