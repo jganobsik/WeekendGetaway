@@ -38,6 +38,12 @@ class GetawaysController < ApplicationController
           end
       end
 
+      def destroy
+        set_getaway
+        @getaway.destroy
+        redirect_to getaways_path
+      end
+
       private
 
       def set_getaway
