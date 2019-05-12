@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :accommodations
   resources :getaways
   root 'static#home'
+  get '/dashboard' => 'static#dashboard'
   get '/signup' => 'users#new'
   get '/login'  => 'sessions#new'
   post '/login' => 'sessions#create'
