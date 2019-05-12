@@ -9,7 +9,7 @@ def create
 
     if @user.save
         session[:user_id] = @user.id
-        redirect_to 'static#home'
+        redirect_to getaways_path
     else 
         render :new
     end
