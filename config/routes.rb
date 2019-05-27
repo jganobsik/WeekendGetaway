@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/login'  => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get 'flights' => 'getaways#flights', as: :flight
+  get 'roadtrips' => 'getaways#roadtrips', as: :roadtrip
   resources :users
   resources :getaways
 

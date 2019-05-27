@@ -21,6 +21,18 @@ class GetawaysController < ApplicationController
         @getaways = Getaway.all
       end
 
+      def flights
+        @all_getaways = Getaway.all
+        @getaways = @all_getaways.trips.flight
+        render :index
+      end
+
+      def roadtrips
+        @all_getaways = Getaway.all
+        @getaways = @all_getaways.trips.road_trip
+        render :index
+      end
+
       def show
         set_getaway
       end

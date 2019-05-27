@@ -1,5 +1,8 @@
-<h1> All Getaways</h1>
+<h1> Be Inspired by Getaways Created By Users Like You!</h1>
 
 <% @getaways.each do |g| %>
 <%= g.title %>
 <% end %>
+
+<%= link_to "Create a Getaway", new_getaway_path, :class => "button is-fullwidth is-link" %>
+<%= link_to "Return to Homepage", dashboard_path, :class => "button is-fullwidth is-link" %>
