@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get 'flights' => 'getaways#flights', as: :flight
   get 'roadtrips' => 'getaways#roadtrips', as: :roadtrip
+  get '/auth/facebook/callback' => 'sessions#create'
   resources :users
   resources :getaways
 
