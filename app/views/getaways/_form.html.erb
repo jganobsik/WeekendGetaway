@@ -1,5 +1,5 @@
 <%= form_for(@getaway) do |f| %>
-
+<%= render partial: 'layouts/errors', locals: {object: @getaway} %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
