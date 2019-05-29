@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'omniauth-facebook'
  gem 'dotenv-rails'
  gem 'thin'
+ gem 'omniauth-google-oauth2'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
