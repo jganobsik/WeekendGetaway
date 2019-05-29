@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
     def fb_create
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
           u.username = auth['info']['name']
+          u.password = auth['uid']
         end
      
         session[:user_id] = @user.id
