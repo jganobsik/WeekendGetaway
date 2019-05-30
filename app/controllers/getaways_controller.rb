@@ -22,14 +22,12 @@ class GetawaysController < ApplicationController
       end
 
       def flights
-        @all_getaways = Getaway.all
-        @getaways = @all_getaways.trips.flight
+        @getaways = Getaway.all.flights
         render :index
       end
 
       def roadtrips
-        @all_getaways = Getaway.all
-        @getaways = @all_getaways.trips.road_trip
+        @getaways = Getaway.all.road_trips
         render :index
       end
 
