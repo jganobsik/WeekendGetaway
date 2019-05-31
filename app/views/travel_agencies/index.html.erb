@@ -1,0 +1,7 @@
+
+<% @agencies.each do |agency| %>
+<%= agency.name %>
+<% agency.getaways.each do |getaway| %>
+<%= getaway.title %>
+<% end %>
+<% end %>
