@@ -1,0 +1,9 @@
+<%= form_for(@agency) do |f| %>
+
+<%= render partial: 'layouts/errors', locals: {object: @agency} %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.submit "Register New Agency"%>
+
+<% end %>
