@@ -8,10 +8,13 @@ class TravelAgenciesController < ApplicationController
         @agency = TravelAgency.new(travel_agency_params)
     
         if @agency.save
-         
             redirect_to travel_agency_path
         else 
             render :new
         end
+    end
+
+    def index
+        @agencies = TravelAgency.all
     end
 end
