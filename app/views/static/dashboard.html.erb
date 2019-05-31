@@ -1,7 +1,12 @@
 <h1>  Welcome to WeekendGetaway  </h1>
-
-#add example trips from other users
-
+<br>
+<% @getaways.each do |getaway| %>
+<%= getaway.title %>
+<%= getaway.travel_agency.name %>
+<%= getaway.accomodation.city %>
+<%= link_to "See this Getaway", getaway_path(getaway), :class => "button is-fullwidth is-link"%>
+<br>
+<% end %>
 
 <div class="buttons are-large">
 <%= link_to "Create a Getaway", new_getaway_path, :class => "button is-fullwidth is-link" %>
