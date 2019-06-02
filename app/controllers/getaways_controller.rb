@@ -9,7 +9,8 @@ class GetawaysController < ApplicationController
     
     
       def create
-        @getaway = current_user.getaways.build(getaway_params)
+        @getaway = Getaway.new(getaway_params)
+        @getaway.user = current_user
         if @getaway.save
           redirect_to getaway_path(@getaway)
         else
@@ -33,6 +34,7 @@ class GetawaysController < ApplicationController
 
       def show
         set_getaway
+        @accommodation = @getaway.accommodations.first
       end
 
       def edit
@@ -64,7 +66,7 @@ class GetawaysController < ApplicationController
       end
 
       def getaway_params
-        params.require(:getaway).permit(:title, :days, :travel_agency_id, travel_agency_attributes: [:name], trip_attributes: [:flight, :road_trip, :duration], accommodation_attributes: [:name, :address, :city, :state] )
+        params.require(:getaway).permit(:title, :days, :accommodations, :travel_agency_id, :travel_agency_attributes => [:name, :id], :trips_attributes => [:flight, :road_trip, :duration], :accommodations_attributes => [:name, :address, :city, :state] )
       end
     
 

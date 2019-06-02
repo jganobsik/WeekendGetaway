@@ -2,8 +2,11 @@
 <br>
 <% @getaways.each do |getaway| %>
 <%= getaway.title %>
-<%= getaway.travel_agency.name %>
-<%= getaway.accomodation.city %>
+<% if getaway.accommodations %>
+<% getaway.accommodations.each do |acc| %>
+<%= acc.city %>
+<% end %>
+<% end %>
 <%= link_to "See this Getaway", getaway_path(getaway), :class => "button is-fullwidth is-link"%>
 <br>
 <% end %>
