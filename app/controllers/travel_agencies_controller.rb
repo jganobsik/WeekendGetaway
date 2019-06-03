@@ -8,7 +8,7 @@ class TravelAgenciesController < ApplicationController
         @agency = TravelAgency.new(travel_agency_params)
     
         if @agency.save
-            redirect_to travel_agency_path
+            redirect_to root_path
         else 
             render :new
         end
@@ -17,4 +17,10 @@ class TravelAgenciesController < ApplicationController
     def index
         @agencies = TravelAgency.all
     end
+
+private
+def travel_agency_params
+params.require(:travel_agency).permit(:name)
 end
+end
+
