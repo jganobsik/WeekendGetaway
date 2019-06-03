@@ -2,16 +2,21 @@
 <br>
 <% @getaways.each do |getaway| %>
 <%= getaway.title %>
+<br>
 <% if getaway.accommodations %>
 <% getaway.accommodations.each do |acc| %>
 <%= acc.city %>
 <% end %>
 <% end %>
+<br>
 <%= link_to "See this Getaway", getaway_path(getaway), :class => "button is-fullwidth is-link"%>
 <br>
 <% end %>
 
 <div class="buttons are-large">
 <%= link_to "Create a Getaway", new_getaway_path, :class => "button is-fullwidth is-link" %>
+<br>
 <%= link_to "Get Inspired by Other Getaways", getaways_path, :class => "button is-fullwidth is-link" %>
+<%= link_to "See Road Trips", roadtrip_path, :class => "button is-fullwidth is-link" %>
+<%= link_to "See Flights", flight_path, :class => "button is-fullwidth is-link" %>
 </div>
