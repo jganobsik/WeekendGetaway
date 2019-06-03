@@ -7,7 +7,7 @@
 <br />
   Number of <%= f.label :days %>
   <br />
-  <%= f.number_field :days, min:2 %>
+  <%= f.number_field :days, min: 2, max: 4 %>
  <br />
   <%= f.fields_for :trips do |trip| %>
     <%= trip.label :road_trip %>
