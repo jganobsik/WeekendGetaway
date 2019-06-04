@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id 
-            redirect_to getaways_path
+            redirect_to dashboard_path
         else
             redirect_to 'login'
         end
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
      
         session[:user_id] = @user.id
      
-        redirect_to '/dashboard'
+        redirect_to dashboard_path
       end
      
       private
