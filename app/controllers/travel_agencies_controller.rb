@@ -8,7 +8,7 @@ class TravelAgenciesController < ApplicationController
         @agency = TravelAgency.new(travel_agency_params)
     
         if @agency.save
-            redirect_to root_path
+            redirect_to dashboard_path
         else 
             render :new
         end
