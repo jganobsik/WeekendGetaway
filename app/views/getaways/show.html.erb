@@ -1,10 +1,25 @@
 <h1> <%= @getaway.title %> </h1>
 
+
 <p> Created by: <%= @getaway.user.username %> </p>
 
 
 <p>Destination: <%= @accommodation.city %>, <%= @accommodation.state %> </p>
-
-
-
+<h3> Staying At: </h3>
+<% @getaway.accommodations.each do |acc| %>
+<%= acc.name %>
+<br>
+<%= acc.address %>
+<% end %>
+<br>
+<h3> Travel Details: </h3>
+<% @getaway.trips.each do |t| %>
+<% if t.road_trip == true %>
+<%= t.duration %> Hour Road Trip
+<% elsif t.flight == true %> 
+<%= t.duration %> Hour flight
+<% else %>
+<%= t.duration %> Hour trip 
+<% end %>
+<% end %>
 <%= link_to "Back To Dashboard", dashboard_path, :class => "button is-fullwidth is-link"%>
