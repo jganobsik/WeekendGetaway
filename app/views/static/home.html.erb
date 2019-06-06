@@ -1,9 +1,27 @@
-<h1>Welcome</h1>
 
-<%=  link_to "Sign up", signup_path %>
+<section class="hero is-dark is-medium">
+ <div class="hero-head">
+    <nav class="navbar">
 
-OR
-
-<%= link_to "Log in", login_path %>
-
-<%= link_to('Log in with Facebook!', '/auth/facebook') %>
+          <div class="navbar-end">
+            <a class="navbar-item">
+              <%= link_to "Log in", login_path, class:"button is-link"  %>
+              <%= link_to('Log in with Facebook!', '/auth/facebook', class:"button is-link" ) %>
+            </a>
+            <a class="navbar-item">
+               <%= link_to "Sign up", signup_path, class:"button is-link" %>
+            </a>
+         </div>
+    </nav>
+  </div>
+  <div class="hero-body">
+   <div class="container has-text-centered">
+      <h1 class="title">
+        WeekendGetaway
+      </h1>
+      <h2 class="subtitle">
+        Plan your 2-4 day vacation!
+      </h2>
+    </div>  
+    </div> 
+</section>
