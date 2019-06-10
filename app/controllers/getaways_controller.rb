@@ -43,11 +43,11 @@ class GetawaysController < ApplicationController
 
       def update
         set_getaway
-        if @getaway.update(getaway_params)
-            redirect_to getaway_path(@getaway)
-          else
-            render :edit
-          end
+        @getaway.update(getaway_params)
+            #redirect_to getaway_path(@getaway)
+          #else
+           # render :edit
+          #end
       end
 
       def destroy
@@ -66,7 +66,7 @@ class GetawaysController < ApplicationController
       end
 
       def getaway_params
-        params.require(:getaway).permit(:title, :days, :accommodations, :travel_agency_id, :travel_agency_attributes => [:name, :id], :trips_attributes => [:flight, :road_trip, :duration], :accommodations_attributes => [:name, :address, :city, :state] )
+        params.require(:getaway).permit(:title, :days, :accommodations, :travel_agency_id, :travel_agency_attributes => [:name, :id], :trips_attributes => [:flight, :road_trip, :duration, :id], :accommodations_attributes => [:name, :address, :city, :state, :id] )
       end
     
 
