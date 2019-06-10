@@ -1,9 +1,14 @@
-<h1> <%= @getaway.title %> </h1>
+<section class="hero is-dark is-medium">
+<div class="hero-body">
+   <div class="container has-text-centered">
+<h1 class="title is-1">   <%= @getaway.title %> </h1>
+<h3 class="subtitle"> Created by: <%= @getaway.user.username %> </h3>
+</div>
+</div>
+</section>
 
 
-<p> Created by: <%= @getaway.user.username %> </p>
-
-
+<div class="box">
 <p>Destination: <%= @accommodation.city %>, <%= @accommodation.state %> </p>
 <h3> Staying At: </h3>
 <% @getaway.accommodations.each do |acc| %>
@@ -22,8 +27,12 @@
 <%= t.duration %> Hour trip 
 <% end %>
 <% end %>
+</div>
+
+<div class="buttons">
 <%= link_to "Back To Dashboard", dashboard_path, :class => "button is-fullwidth is-link"%>
 <% if is_owner?(@getaway) %>
 <%= link_to "Edit Getaway", edit_getaway_path(@getaway), :class => "button is-fullwidth is-link"%>
 <%= link_to "Delete Getaway", getaway_path(@getaway), method: :delete, :class => "button is-fullwidth is-link"%>
 <% end %>
+</div>
