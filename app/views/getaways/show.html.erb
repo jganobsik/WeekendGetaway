@@ -23,3 +23,7 @@
 <% end %>
 <% end %>
 <%= link_to "Back To Dashboard", dashboard_path, :class => "button is-fullwidth is-link"%>
+<% if is_owner?(@getaway) %>
+<%= link_to "Edit Getaway", edit_getaway_path(@getaway), :class => "button is-fullwidth is-link"%>
+<%= link_to "Delete Getaway", getaway_path(@getaway), method: :delete, :class => "button is-fullwidth is-link"%>
+<% end %>
