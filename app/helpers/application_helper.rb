@@ -6,4 +6,9 @@ module ApplicationHelper
       def logged_in?
         !!session[:user_id]
       end
+
+      def is_owner?(getaway)
+        getaway.user_id = current_user.id 
+      end
+
 end
