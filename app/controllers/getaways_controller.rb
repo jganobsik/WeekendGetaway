@@ -43,11 +43,11 @@ class GetawaysController < ApplicationController
 
       def update
         set_getaway
-        @getaway.update(getaway_params)
-            #redirect_to getaway_path(@getaway)
-          #else
-           # render :edit
-          #end
+          if @getaway.update(getaway_params)
+            redirect_to getaway_path(@getaway)
+          else
+            render :edit
+          end
       end
 
       def destroy
