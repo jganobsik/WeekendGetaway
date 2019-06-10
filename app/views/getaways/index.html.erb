@@ -1,6 +1,16 @@
-<h1> Be Inspired by Getaways Created By Users Like You!</h1>
+<section class="hero is-dark is-medium">
+<div class="hero-body">
+   <div class="container has-text-centered">
+<h1 class="title is-1">  Be Inspired by Getaways Created By Users Like You! </h1>
+</div>
+</div>
+</section>
+
+
+
 
 <% @getaways.each do |g| %>
+<div class="box">
 <%= g.title %>
 <% if g.accommodations %>
 <% g.accommodations.each do |acc| %>
@@ -9,7 +19,10 @@
 <% end %>
 <%= link_to "See this Getaway", getaway_path(g), :class => "button is-fullwidth is-link"%>
 <br>
+</div>
 <% end %>
 
+<div class="buttons">
 <%= link_to "Create a Getaway", new_getaway_path, :class => "button is-fullwidth is-link" %>
 <%= link_to "Return to Homepage", dashboard_path, :class => "button is-fullwidth is-link" %>
+</div>
