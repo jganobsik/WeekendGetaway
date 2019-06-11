@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :travel_agencies
+  resources :travel_agencies do
+    resources :getaways, only: [:new, :index]
+  end
   resources :excursions
   resources :trips
   resources :accommodations
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
   get 'roadtrips' => 'getaways#roadtrips', as: :roadtrip
   get '/auth/facebook/callback' => 'sessions#fb_create'
   resources :users
-  resources :getaways
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

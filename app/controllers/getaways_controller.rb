@@ -1,9 +1,9 @@
 class GetawaysController < ApplicationController
-
+before_action :set_getaway, only: [:show, :edit, :update, :destroy]
     def new
           @getaway = Getaway.new
-          @getaway.trips.build()
-          @getaway.accommodations.build()
+          @getaway.trips.build
+          @getaway.accommodations.build
           
       end
     
@@ -33,17 +33,14 @@ class GetawaysController < ApplicationController
       end
 
       def show
-        set_getaway
         @accommodation = @getaway.accommodations.first
       end
 
       def edit
-        set_getaway
       end
 
       def update
-        set_getaway
-          if @getaway.update(getaway_params)
+          if is_owner?(@getaway) && @getaway.update(getaway_params)
             redirect_to getaway_path(@getaway)
           else
             render :edit
@@ -51,7 +48,6 @@ class GetawaysController < ApplicationController
       end
 
       def destroy
-        set_getaway
         @getaway.destroy
         redirect_to getaways_path
       end

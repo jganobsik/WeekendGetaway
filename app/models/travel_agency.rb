@@ -4,6 +4,7 @@ class TravelAgency < ApplicationRecord
     has_many :trips, through: :getaways
     has_many :accommodations, through: :getaways
     has_many :excursions, through: :getaways
+    has_many :users, through: :getaways
 
 
 end
