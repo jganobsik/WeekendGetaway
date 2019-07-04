@@ -7,5 +7,5 @@ class User < ApplicationRecord
     has_many :accommodations, through: :getaways
     has_many :excursions, through: :getaways
     has_many :travel_agencies, through: :getaways
-
+    scope :top_two, -> { joins(:getaways).group('users.id').order('COUNT(users.id) desc').limit(2) }
 end

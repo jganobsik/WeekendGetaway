@@ -15,6 +15,11 @@ def create
     end
 end
 
+
+def toptwo
+@users = User.top_two
+render :top_two
+end
 private
 
   def user_params

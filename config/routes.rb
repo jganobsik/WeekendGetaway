@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'flights' => 'getaways#flights', as: :flight
   get 'roadtrips' => 'getaways#roadtrips', as: :roadtrip
   get '/auth/facebook/callback' => 'sessions#fb_create'
+  get '/users/toptwo' => 'users#toptwo', as: :top_users
   resources :users
 
 
