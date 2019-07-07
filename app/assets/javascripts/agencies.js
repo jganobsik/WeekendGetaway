@@ -20,7 +20,10 @@ $('.agencies').on('click', (e) =>{
     })  
 
 })
-
+$(".show_link").on('click', (e) =>
+e.preventDefault()
+$('#app-container').html('')
+)
 }
 
 function Agency(agency) {
@@ -31,7 +34,7 @@ function Agency(agency) {
 
 Agency.prototype.formatIndex = function(){
     let agencyHtml = `
-    <a href="/travel_agencies/${this.id}"></a><h1>${this.name}</h1></a>
+    <a href="/travel_agencies/${this.id}" class="show_link"></a><h1>${this.name}</h1></a>
     `
     return agencyHtml
 }
