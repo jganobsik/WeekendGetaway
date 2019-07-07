@@ -10,9 +10,11 @@ $('.agencies').on('click', (e) =>{
     .then(r => r.json())
     .then(resp => {
 
-        $('app-container').html('')
+        $('#app-container').html('')
         resp.forEach((agency) => {
             let newAgency = new Agency(agency)
+            let agencyHtml = newAgency.formatIndex()
+            $('#app-container').append(agencyHtml)
         })
     })  
 
@@ -26,7 +28,7 @@ function Agency(agency) {
     this.getaways = agency.getaways
 }
 
-Agency.prototype.formatIndex = () => {
+Agency.prototype.formatIndex = function(){
     let agencyHtml = `
     <h1>${this.name}</h1>
     `
