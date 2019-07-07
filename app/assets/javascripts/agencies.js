@@ -6,6 +6,7 @@ handleClick()
 const handleClick = () => {
 $('.agencies').on('click', (e) =>{
     e.preventDefault()
+    history.pushState(null, null, "travel_agencies")
     fetch('/travel_agencies.json')
     .then(r => r.json())
     .then(resp => {
@@ -30,7 +31,7 @@ function Agency(agency) {
 
 Agency.prototype.formatIndex = function(){
     let agencyHtml = `
-    <h1>${this.name}</h1>
+    <a href="/travel_agencies/${this.id}"></a><h1>${this.name}</h1></a>
     `
     return agencyHtml
 }
