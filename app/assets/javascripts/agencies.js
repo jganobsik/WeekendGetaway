@@ -12,10 +12,16 @@ $('.agencies').on('click', (e) =>{
 
         $('app-container').html('')
         resp.forEach((agency) => {
-            
+
         })
     })  
 
 })
 
+}
+
+function Agency(id, name, getaways) {
+    this.id = id
+    this.name = name 
+    this.getaways = getaways
 }
