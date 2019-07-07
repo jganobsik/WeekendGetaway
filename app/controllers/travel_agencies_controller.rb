@@ -22,6 +22,13 @@ class TravelAgenciesController < ApplicationController
         end
     end
 
+    def show 
+        @agency = TravelAgency.find(params[:id])
+        respond_to do |f|
+            f.html
+            f.json {render json: @agency}
+        end
+
 private
 def travel_agency_params
 params.require(:travel_agency).permit(:name)
