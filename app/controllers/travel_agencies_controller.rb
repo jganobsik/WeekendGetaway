@@ -16,6 +16,10 @@ class TravelAgenciesController < ApplicationController
 
     def index
         @agencies = TravelAgency.all
+        respond_to do |f|
+            f.html
+            f.json {render json: @agencies}
+        end
     end
 
 private
