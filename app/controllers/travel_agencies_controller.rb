@@ -28,6 +28,7 @@ class TravelAgenciesController < ApplicationController
             f.html
             f.json {render json: @agency}
         end
+    end
 
 private
 def travel_agency_params
