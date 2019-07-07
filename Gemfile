@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'dotenv-rails'
  gem 'thin'
  gem 'omniauth-google-oauth2'
+ gem 'active_model_serializers', '~> 0.10.9'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
