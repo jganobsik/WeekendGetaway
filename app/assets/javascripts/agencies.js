@@ -20,8 +20,8 @@ $('.agencies').on('click', (e) =>{
 
 }
 
-function Agency(id, name, getaways) {
-    this.id = id
-    this.name = name 
-    this.getaways = getaways
+function Agency(agency) {
+    this.id = agency.id
+    this.name = agency.name 
+    this.getaways = agency.getaways
 }
