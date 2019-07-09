@@ -10,7 +10,16 @@ $(() => {
       getAgencies()
   
     })
-  
+    
+    $('.new-agencies').on('click', e => {
+        e.preventDefault()
+        history.pushState(null, null, "travel_agencies/new")
+        let newAgencyForm = Agency.renderAgencyForm()
+        document.getElementsByTagName('body')[0].innerHTML = ''
+        document.getElementsByTagName('body')[0].innerHTML += newAgencyForm; 
+      })
+      
+
     $(document).on('click', ".show_link", function(e) {
       e.preventDefault()
       $(document).html('')
@@ -38,6 +47,17 @@ $(() => {
          })
       })
   }
+
+  const renderAgencyForm = () => {
+    return (`
+		<strong>Register a New Agency</strong>
+			<form>
+				<input id='name' type='text' name='name'></input><br>
+				<input type='submit' />
+			</form>
+		`)
+
+  }
   
 } 
 
@@ -45,7 +65,7 @@ $(() => {
 
 const formatIndex = (item) => {
     let agencyHtml = `
-      <a href="/posts/${item.id}" data-id="${item.id}" class="show_link"><h1>${item.name}</h1></a>
+      <a href="/travel_agencies/${item.id}" data-id="${item.id}" class="show_link"><h1>${item.name}</h1></a>
     `
     return agencyHtml
   }
@@ -53,8 +73,17 @@ const formatIndex = (item) => {
   const formatShow = (item) =>{
     let agencyHtml = `
       <h3>${item.name}</h3>
+
       
     `
+     item.getaways.forEach(getaway => {
+        getawayDiv = `
+        <br>
+        <a href="/getaways/${item.id} data-id="${item.id}" class="show_getaway"> <div>${getaway.title}</div></a>
+        <br>
+        `
+        agencyHtml += getawayDiv
+    })
     return agencyHtml
   }
   function Agency(agency) {
@@ -62,3 +91,17 @@ const formatIndex = (item) => {
     this.name = agency.name 
     this.getaways = agency.getaways
 };
+
+
+const postAgency = (url = `/travel_agencies.json`, data) => {
+
+return fetch(url, {
+    method: 'POST', 
+    headers: {
+        'Content-Type': 'application/json',
+       
+    },
+   
+    body: JSON.stringify(data), 
+})
+.then(response => response.json() ) }
