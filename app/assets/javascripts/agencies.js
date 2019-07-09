@@ -1,4 +1,5 @@
 $(() => {
+    console.log('loaded')
     bindClickHandlers()
   })
   
@@ -12,53 +13,52 @@ $(() => {
   
     $(document).on('click', ".show_link", function(e) {
       e.preventDefault()
-      $('#').html('')
+      $(document).html('')
       let id = $(this).attr('data-id')
       fetch(`/travel_agencies/${id}.json`)
       .then(res => res.json())
       .then(r => {
-        let newAgency = new Agency(r)
-        let agencyHtml = newAgency.formatShow()
-  
-        $('#app-container').append(agencyHtml)
+        document.getElementsByTagName('body')[0].innerHTML = ''
+        let newAgency = new Agency(r);           
+        document.getElementsByTagName('body')[0].innerHTML += formatShow(newAgency);  
       })
     })
-  
-    
   
   const getAgencies = () => {
     fetch(`/travel_agencies.json`)
       .then(res => res.json())
       .then(agencies => {
-         $('#app-container').html('')
+        console.log(agencies)
+        document.getElementsByTagName('body')[0].innerHTML = ''
          agencies.forEach(agency => {
-           let newAgency = new Agency(agency)
+           let newAgency = new Agency(agency);
   
-           let agencyHtml = newAgency.formatIndex()
-  
-           $('#app-container').append(agencyHtml)
+           console.log(newAgency)
+           document.getElementsByTagName('body')[0].innerHTML += formatIndex(newAgency);          
          })
       })
   }
   
-  function Agency(agency) {
-    this.id = agency.id
-    this.name = agency.name 
-    this.getaways = agency.getaways
-}
-  
-  Agency.prototype.formatIndex = function(){
+} 
+
+
+
+const formatIndex = (item) => {
     let agencyHtml = `
-      <a href="/posts/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+      <a href="/posts/${item.id}" data-id="${item.id}" class="show_link"><h1>${item.name}</h1></a>
     `
     return agencyHtml
   }
   
-  Agency.prototype.formatShow = function(){
+  const formatShow = (item) =>{
     let agencyHtml = `
-      <h3>${this.name}</h3>
+      <h3>${item.name}</h3>
       
     `
     return agencyHtml
   }
-} 
+  function Agency(agency) {
+    this.id = agency.id
+    this.name = agency.name 
+    this.getaways = agency.getaways
+};
