@@ -11,11 +11,12 @@ $(() => {
   
     })
     
-    $('.new-agencies').on('click', e => {
+    $('.new_agency').on('click', e => {
         e.preventDefault()
         history.pushState(null, null, "travel_agencies/new")
-        let newAgencyForm = Agency.renderAgencyForm()
         document.getElementsByTagName('body')[0].innerHTML = ''
+        let newAgencyForm = renderAgencyForm()
+ 
         document.getElementsByTagName('body')[0].innerHTML += newAgencyForm; 
       })
       
@@ -50,8 +51,9 @@ $(() => {
 
   const renderAgencyForm = () => {
     return (`
-		<strong>Register a New Agency</strong>
-			<form>
+    <strong>Register a New Agency</strong>
+      <br>
+			<form action="/travel_agencies" method="POST">
 				<input id='name' type='text' name='name'></input><br>
 				<input type='submit' />
 			</form>
