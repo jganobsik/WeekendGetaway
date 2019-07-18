@@ -1,5 +1,5 @@
 class TravelAgenciesController < ApplicationController
-
+    skip_before_action :verify_authenticity_token
     def new
         @agency = TravelAgency.new
     end
@@ -32,7 +32,7 @@ class TravelAgenciesController < ApplicationController
 
 private
 def travel_agency_params
-params.require(:travel_agency).permit(:name)
+params.permit(:name)
 end
 end
 
